@@ -4,7 +4,6 @@ import fetch from 'node-fetch';
 const app = express();
 app.use(express.json());
 
-// Cambia esta URL a tu Apps Script
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVRp05Jn4GDTuUk8nVM5-PkL4lX1IdCteDSwNlW3hK2EAmc01His2Gb9dwJwE5C7Yd/exec';
 
 app.post('/guardarConversacion', async (req, res) => {
@@ -26,4 +25,7 @@ app.post('/guardarConversacion', async (req, res) => {
   }
 });
 
-export default app;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Proxy listening on port ${PORT}`);
+});
